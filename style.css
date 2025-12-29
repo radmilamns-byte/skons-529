@@ -1,0 +1,486 @@
+:root{
+  --accent:#2f7f8b;     /* usklađeno sa banerom */
+  --accent-dark:#1e5f69;
+  --bg:#eef6f7;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+  --border:#e2e8f0;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+
+body{
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:
+    linear-gradient(180deg, var(--accent) 0%, var(--bg) 40%, #ffffff 100%);
+  color:var(--text);
+}
+
+/* layout */
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* top bar */
+.topbar{
+  background:rgba(255,255,255,.92);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  padding:10px 0;
+}
+.logos{display:flex;gap:14px;align-items:center}
+.logos img{height:42px}
+
+/* nav */
+.nav a{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:600;
+  margin-left:14px;
+  padding:8px 12px;
+  border-radius:10px;
+}
+.nav a:hover{
+  background:rgba(47,127,139,.12);
+  color:var(--accent-dark);
+}
+
+/* banner */
+.banner{position:relative}
+.banner img{
+  width:100%;
+  max-height:300px;
+  object-fit:cover;
+  display:block;
+}
+.banner-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.05)
+  );
+}
+.banner-text{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:20px;
+  width:100%;
+  max-width:1100px;
+  padding:0 16px;
+  color:#fff;
+}
+.banner-text h1{
+  margin:0 0 6px;
+  font-size:40px;
+}
+.banner-text p{margin:0;font-size:16px}
+
+/* content */
+.main{padding:24px 0 40px}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 10px 30px rgba(15,23,42,.08);
+}
+
+/* tables (program) */
+.table-wrap{
+  overflow-x:auto;
+  border:1px solid var(--border);
+  border-radius:14px;
+  margin-top:10px;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:760px;
+}
+thead th{
+  background:rgba(47,127,139,.12);
+  padding:12px;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+}
+tbody td{
+  padding:12px;
+  border-bottom:1px solid var(--border);
+  vertical-align:top;
+}
+.col-time{width:160px;font-weight:700}
+.col-speakers{color:var(--muted)}
+tbody tr:hover{background:#f8fbfc}
+
+/* footer */
+.footer{
+  margin-top:18px;
+  font-size:13px;
+  color:var(--muted);
+}
+/* footer with logos */
+.footer{
+  margin-top:40px;
+  padding:20px 0;
+  background:rgba(255,255,255,0.9);
+  border-top:1px solid var(--border);
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.footer-text{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.footer-logos{
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+
+.footer-logos img{
+  height:36px;
+  opacity:0.9;
+}
+
+.footer-logos img:hover{
+  opacity:1;
+}
+/* NAV ispod banera */
+.navbar{
+  background: rgba(255,255,255,.92);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar-inner{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  padding:10px 0;
+}
+.navbar a{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:700;
+  padding:10px 14px;
+  border-radius:12px;
+}
+.navbar a:hover{
+  background:rgba(47,127,139,.12);
+  color:var(--accent-dark);
+}
+.navbar a.active{
+  background: rgba(47,127,139,.18);
+  color: var(--accent-dark);
+}
+
+/* FOOTER sa logotipima */
+.site-footer{
+  margin-top: 22px;
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  background: rgba(255,255,255,.85);
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.footer-logos{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.footer-logos img{
+  height: 44px;
+}
+
+/* MOBILNI BANER */
+@media (max-width: 720px){
+  .banner img{
+    max-height: 200px;
+    height: 200px;
+    object-position: center;
+  }
+  .banner-text{
+    bottom: 14px;
+  }
+  .banner-text h1{
+    font-size: 26px;
+    line-height: 1.1;
+  }
+  .banner-text p{
+    font-size: 14px;
+  }
+  table{ min-width: 620px; }
+}
+/* aktivna stavka menija */
+.nav a.active,
+.menu-inner a.active {
+  background: rgba(47,127,139,.18);
+  color: var(--accent-dark);
+  border-radius: 12px;
+
+.footer-logos{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:42px;          /* 👈 OVO je razmak između loga */
+}
+
+.footer-logos img{
+  height:42px;
+  width:auto;
+}
+
+}
+/* active nav item */
+.nav a.active{
+  background: rgba(47,127,139,.18);
+  color: var(--accent-dark);
+}
+
+/* button */
+.btn{
+  display:inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:700;
+}
+.btn:hover{ background: var(--accent-dark); }
+
+/* footer with two logos */
+.footer-logos{
+  display:flex;
+  gap:18px;            /* razmak između logo-a */
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+.footer-logos img{ height:40px; }
+
+/* banner mobile tweak */
+@media (max-width: 640px){
+  .banner img{ max-height: 200px; }
+  .banner-text h1{ font-size: 28px; }
+}
+.lang-switch{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  margin-left:16px;
+  font-weight:700;
+}
+
+.lang-switch a{
+  text-decoration:none;
+  color:var(--text);
+  padding:6px 10px;
+  border-radius:8px;
+  border:1px solid transparent;
+}
+
+.lang-switch a.active{
+  background:rgba(47,127,139,.18);
+  color:var(--accent-dark);
+  border-color:rgba(47,127,139,.35);
+}
+
+.lang-switch a:hover{
+  background:rgba(47,127,139,.12);
+}
+
+.footer-logos{
+  display: flex;
+  justify-content: center;   /* 👈 KLJUČNO */
+  align-items: center;
+  gap: 42px;                 /* razmak između logoa */
+  width: 100%;
+}
+
+/* aktivna stavka menija */
+.nav a.active{
+  background: rgba(47,127,139,.18);
+  color: var(--accent-dark);
+}
+
+/* SR/EN toggle */
+.lang{display:flex; align-items:center; gap:10px}
+.lang-btn{
+  text-decoration:none;
+  font-weight:700;
+  color:var(--text);
+  padding:6px 10px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.7);
+}
+.lang-btn.active{
+  background:rgba(47,127,139,.18);
+  color:var(--accent-dark);
+}
+.lang-sep{color:var(--muted)}
+
+/* grid za kontakt (desktop: 2 kolone, mobilni: 1 kolona) */
+.grid-2{
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  gap:18px;
+  margin-top:14px;
+}
+
+.card-inner{
+  border-radius:14px;
+  padding:18px;
+  box-shadow:none;
+}
+
+/* footer logoi centrirani + razmak */
+.footer-logos{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:24px;          /* RAZMAK izmedju logoa */
+  margin-top:16px;
+}
+.footer-logos img{height:44px}
+.footer-copy{ text-align:center; margin-top:10px; }
+
+/* active menu + language toggle */
+.nav a.active{
+  background:rgba(47,127,139,.18);
+  color:var(--accent-dark);
+}
+
+.lang{display:flex; gap:8px; align-items:center;}
+.lang-btn{
+  text-decoration:none;
+  font-weight:700;
+  padding:8px 12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#fff;
+  color:var(--text);
+}
+.lang-btn.active{
+  background:rgba(47,127,139,.18);
+  border-color:rgba(47,127,139,.35);
+  color:var(--accent-dark);
+}
+
+/* info layout */
+.grid-2{
+  display:grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap:18px;
+  margin-top:14px;
+}
+.stack{display:flex; flex-direction:column; gap:14px;}
+.mini-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px;
+}
+.nice-list{margin:8px 0 0; padding-left:18px;}
+.soft{border:0; border-top:1px solid var(--border); margin:18px 0;}
+
+/* footer logos centered + spacing */
+.footer-logos{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:26px;
+  margin-top:22px;
+}
+.footer-logos img{height:44px; width:auto;}
+.footer-text{ text-align:center; margin-top:10px; }
+
+/* banner mobile */
+.banner img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+@media (max-width: 800px){
+  .grid-2{grid-template-columns:1fr;}
+  .banner img{height:180px;}
+}
+
+
+.menu-inner{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center; /* meni centriran */
+  padding:10px 0;
+  min-height:54px;
+}
+
+.lang{
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+@media (max-width: 700px){
+  .nav{
+    padding-right:90px; /* prostor za EN/SR */
+  }
+}
+.menu-inner{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center; /* meni centriran */
+  padding:10px 0;
+  min-height:54px;
+}
+
+.lang{
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+@media (max-width: 700px){
+  .nav{
+    padding-right:90px; /* prostor za EN/SR */
+  }
+}
