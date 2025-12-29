@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SkoNS 529/26 – Kontakt</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ===== MENU BAR (meni + language switch u ISTOM REDU) ===== */
+    .menu-bar{
+      background:rgba(255,255,255,.92);
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(6px);
+    }
+
+    .menu-inner{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center; /* nav centriran */
+      padding:10px 0;
+      min-height:54px;
+    }
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .nav a{
+      text-decoration:none;
+      color:var(--text);
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:12px;
+    }
+    .nav a:hover{
+      background:rgba(47,127,139,.12);
+      color:var(--accent-dark);
+    }
+    .nav a.active{
+      background: rgba(47,127,139,.16);
+      color: var(--accent-dark);
+      box-shadow: inset 0 0 0 1px rgba(47,127,139,.25);
+    }
+
+    /* language switch desno u traci */
+    .lang{
+      position:absolute;
+      right:0;
+      top:50%;
+      transform:translateY(-50%);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-weight:700;
+      padding-right:2px;
+      white-space:nowrap;
+    }
+    .lang a{
+      text-decoration:none;
+      color:var(--muted);
+      padding:6px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+    }
+    .lang a:hover{
+      color:var(--accent-dark);
+      background:rgba(47,127,139,.10);
+      border-color:rgba(47,127,139,.18);
+    }
+    .lang a.active-lang{
+      color:var(--accent-dark);
+      background:rgba(47,127,139,.16);
+      border-color:rgba(47,127,139,.25);
+    }
+    .lang .sep{ color:var(--muted); opacity:.7; }
+
+    /* ===== CONTACT GRID ===== */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top:14px;
+    }
+    .mini-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:16px;
+    }
+    .mini-card h3{ margin:0 0 10px; }
+    .mini-card p{ margin:0 0 8px; color:var(--text); }
+    .mini-card a{ color:var(--accent-dark); font-weight:700; }
+
+    /* footer logo centar + razmak */
+    .footer-logos{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      justify-content:center;
+      padding-top:10px;
+      flex-wrap:wrap;
+    }
+    .footer-logos img{ height:46px; width:auto; }
+
+    /* mobilno */
+    @media (max-width: 900px){
+      .contact-grid{ grid-template-columns:1fr; }
+    }
+    @media (max-width: 700px){
+      .banner img{ max-height: 220px; }
+      .menu-inner{
+        justify-content:flex-start; /* da ne gura nav ako je gusto */
+        padding-left:0;
+      }
+      .nav{
+        width:100%;
+        justify-content:center;
+        padding-right:90px; /* prostor za lang desno */
+      }
+      .lang{ right:0; padding-right:0; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- BANER -->
+<div class="banner">
+  <img src="assets/baner..png" alt="SkoNS 529/26 baner" />
+</div>
+
+<!-- MENI -->
+<div class="menu-bar">
+  <div class="container menu-inner">
+
+    <nav class="nav">
+      <a href="index.html">Početna</a>
+      <a href="info.html">Opšte informacije</a>
+      <a href="program.html">Program</a>
+      <a href="kontakt.html" class="active">Kontakt</a>
+    </nav>
+
+    <div class="lang">
+      <a href="contact-en.html">EN</a>
+      <span class="sep">/</span>
+      <a href="kontakt.html" class="active-lang">SR</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <main class="main">
+    <div class="container">
+      <section class="card">
+        <h1 style="margin-top:0">Kontakt</h1>
+
+        <div class="contact-grid">
+          <div class="mini-card">
+            <h3>ASTAS Novi Sad</h3>
+            <p>Heroja Pinkija 6, Novi Sad, Serbia</p>
+            <p><a href="mailto:astas.ns@gmail.com">astas.ns@gmail.com</a></p>
+          </div>
+
+          <div class="mini-card">
+            <h3>Kontakt osoba</h3>
+            <p><strong>Milica Trkulja</strong></p>
+            <p><a href="tel:+381694269570">+381 69 42 69 570</a></p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-logos">
+          <img src="assets/logo-astas.png" alt="ASTAS logo">
+          <img src="assets/logo-makedonija.png" alt="Udruženje internista Makedonije logo">
+        </div>
+        <div style="text-align:center; margin-top:10px">
+          © SkoNS 529/26 – Novi Sad, 27.02–01.03.2026
+        </div>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
